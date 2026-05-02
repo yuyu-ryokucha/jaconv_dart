@@ -150,8 +150,7 @@ extension JaconvStringExtension on String {
 
   /// Convert Hiragana/Katakana to Roman-input-style alphabet
   String toAlphabet() {
-    String text = this
-        .toHiragana(); // internally kana2alphabet first converts to hiragana or it expects hiragana
+    String text = toHiragana(); // internally kana2alphabet first converts to hiragana or it expects hiragana
 
     // We can port the sequence of replaces from kana2alphabet
     text = text
@@ -311,7 +310,7 @@ extension JaconvStringExtension on String {
       final chars = text.split('');
       final tsuPos = chars.indexOf('っ');
       if (chars.length <= tsuPos + 1) {
-        text = chars.sublist(0, chars.length - 1).join() + 'xtsu';
+        text = "${chars.sublist(0, chars.length - 1).join()}xtsu";
       } else if (tsuPos == 0) {
         chars[tsuPos] = 'xtsu';
         text = chars.join();

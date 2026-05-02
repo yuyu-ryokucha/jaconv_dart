@@ -1,5 +1,5 @@
 /// A pure Dart implementation of the Python `jaconv` library for Japanese character conversion.
-library jaconv_dart;
+library;
 
 export 'src/jaconv_extensions.dart';
 
